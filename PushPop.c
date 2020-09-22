@@ -55,7 +55,7 @@ int pop(int arr[],int *temp)
  printf("Stack underflow\n");
  return -1;
  }
- return arr[*temp--]; //delete the element and decrement top (post decrement)
+ return arr[temp*--]; //delete the element and decrement top (post decrement)
 }
 void display(int arr[],int top)
 {
