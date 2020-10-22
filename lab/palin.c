@@ -5,6 +5,7 @@ char s[100];
 int top = -1;
 
 void push(char ch)
+{
 s[++top]=ch;
 }
 char pop()
