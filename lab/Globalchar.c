@@ -26,7 +26,7 @@ void pop()
         top--;
 }
 
-void traverse()
+void display()
 {
     int x;
     for(x=top;x>=0;x--)
