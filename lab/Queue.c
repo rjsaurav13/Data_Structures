@@ -1,69 +1,76 @@
-#include<stdio.h>
+#include <stdio.h>
 #include<stdlib.h>
-#define SIZE 5
-int f=0,r=-1,q[SIZE];
-void insrt(int ele);
-int delet();
+#define MAX 50
+void insert();
+void delete();
 void display();
-int num_of_ele();
-void main()
+int queue_array[MAX];
+int rear = - 1;
+int front = - 1;
+int main()
 {
- int ch,item,del;
- for(;;)
- {
- printf("\n1.Insert|2.Delete|3.Display|4.Elements in queue|5.exit\n");
- printf("Enter your choice: ");
- scanf("%d",&ch);
- switch(ch)
- {
- case 1:printf("Enter the item \n");
- scanf("%d",&item);
- insrt(item);
- break;
- case 2:del=delet();
- if(del!=-1)
- printf("Deleted elements are %d\n",del);
- break;
- case 3:display();
- break;
- case 4:printf("The number of elements in the queue: 
-%d\n",num_of_ele());
- break;
- case 5:exit(0);
- }
- }
+int choice;
+while (1)
+{
+printf("\n1.insert 2.delete 3.display 4.exit\n");
+printf("Enter your choice: ");
+scanf("%d", &choice);
+switch(choice)
+{
+case 1:
+insert();
+break;
+case 2:
+delete();
+break;
+case 3:
+display();
+break;
+case 4:
+exit(1);
+default:
+printf("Wrong choice \n");
 }
-int num_of_ele()
-{
- return (r-f+1);
 }
-void insrt(int ele)
-{
- if(f==SIZE-1)
- {
- printf("The queue is full\n");
- return;
- }
- q[++r]=ele;
 }
-int delet()
+void insert()
 {
- if(f>r)
- {
- printf("The queue is empty\n");
- return -1;
- }
- return q[f++];
+int item;
+if(rear == MAX - 1)
+printf("Queue Overflow \n");
+else
+{
+if(front== - 1)
+front = 0;
+printf("Insert the element in queue : ");
+scanf("%d", &item);
+rear = rear + 1;
+queue_array[rear] = item;
+}
+}
+void delete()
+{
+if(front == - 1 || front > rear)
+{
+printf("Queue Underflow \n");
+return;
+}
+else
+{
+printf("Element deleted from queue is : %d", queue_array[front]);
+front = front + 1;
+}
 }
 void display()
 {
- int i;
- if(f>r)
- {
- printf("The queue is empty\n");
- return;
- }
- printf("Elements present:\n");
- for(i=f;i<=r;i++)
- printf("%d\n",q[i]);
+int i;
+if(front == - 1)
+printf("Queue is empty \n");
+else
+{
+printf("Queue is : ");
+for(i = front; i <= rear; i++)
+printf("%d ", queue_array[i]);
+printf("\n");
+}
 }
