@@ -1,10 +1,12 @@
 #include <stdio.h>
-int MAX = 3;
-int main ()
+int main()
 {
-int *ptr, num= 5;
-ptr = &num;
-printf("%d",++*ptr +6);
- 
+//int x=10;
+void *gp;
+char ch = 'a';
+//gp = &x;
+//printf("\n Generic pointer points to the integer value = %d", *(int*)gp);
+gp = &ch;
+printf("\n Generic pointer now points to the character= %c", *(char*)gp);
 return 0;
 }
