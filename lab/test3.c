@@ -1,12 +1,14 @@
 #include<stdio.h>
 int main(){
-
-int arr1[]={1,2,3,4,5};
-int arr2[]={3,2,4,6,8};
-int arr3[]={2,3,5,7,9};
-int *parr[3] = {arr1, arr2, arr3};
-int i;
-for(i = 0;i<3;i++)
-printf("%d", *parr[i]);
+int arr[]={1,2,3,4,5};
+int *ptr, i;
+ptr=&arr[2];
+*ptr=-1;
+*(ptr+1)=6;
+*(ptr-1)=6;
+printf("\nArray is: ");
+for(i=0;i<5;i++)
+printf(" %d", *(arr+i));
 return 0;
+
 }
