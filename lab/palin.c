@@ -25,7 +25,7 @@ int main(){
 		c=pop();
 		if(c!=str[i])
 		{
-			printf("string is 	not palindrome");
+			printf("string is not palindrome");
 			exit(0);
 		}
 		i++;
