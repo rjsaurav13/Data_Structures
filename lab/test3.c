@@ -1,19 +1,19 @@
 #include<stdio.h>
 #include<stdlib.h>
 #define maxsize 5
-void insert();
-void delete();
-void display();
+void insert(int *,int *);
+void delete(int *,int *);
+void display(int *,int *);
 
 int main ()
 {
-int a=-1,b=-1;
+int a=-1,b=-1,i;
 int * front = &a, * rear = &b;
 int queue[maxsize];
     int choice;
     while(choice != 4)
     {
-        printf("\n1)-.Insert an element\n2)-.Delete an element\n3)-.Display\n4)-.Exit\n");
+        printf("\n1)-Insert an element\n2)-Delete an element\n3)-Display\n4)-Exit\n");
         printf("\nEnter your choice: ");
         scanf("%d",&choice);
         switch(choice)
@@ -25,7 +25,9 @@ int queue[maxsize];
             delete(queue,&front,&rear);
             break;
             case 3:
-            display(queue,&front,&rear);
+            for(i =*front;i<=*rear; i++){
+            printf("%d ",queue[i]);
+            }
             break;
             case 4:
             exit(0);
@@ -85,17 +87,12 @@ void delete(int queue[],int *f,int *r)
 
 void display(int queue[],int *f,int *r)
 {
-   int i;
-   if(*f == -1)
-      printf("\nCircular Queue is Empty!!!\n");
-   else
-   {
-    printf("Elements in the queue\n");
-     for(i=*f; i<*r; i++){
-     printf("%d ",queue[i]);
-     printf("%d \n",queue[i]);
-
-      }
-
-   }
+int i;
+printf("\n");
+if(*f == -1 || *f > *r )
+printf("\n QUEUE IS EMPTY");
+else {
+for(i = *f;i <= *r ; i++)
+printf("%d", queue[i]);
+}
 }
