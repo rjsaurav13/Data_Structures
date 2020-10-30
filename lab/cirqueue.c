@@ -52,7 +52,7 @@ void display(int items[],int rear,int front)
  else
  {
  printf("Elements in the queue\n");
- for(i=front; i!=rear; i=(i+1)%SIZE)
+ for(i=front; i<=rear; i++)
  printf("%d ",items[i]);
  printf("%d \n",items[i]);
 
