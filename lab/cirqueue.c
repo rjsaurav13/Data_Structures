@@ -1,66 +1,80 @@
 #include<stdio.h>
 #include<stdlib.h>
 #define SIZE 5
+int f(){
+int front =-1;
+return front;
+}
+int r(){
+int rear =-1;
+return rear;
+}
 
-
-int isFull(int front, int rear)
+int isFull()
 {
- if((front==rear+1)||(front==0 && rear==SIZE-1))
+    int fr =f();
+    int re = r();
+ if((fr==re+1)||(fr==0 && re==SIZE-1))
  return 1;
  return 0;
 }
-int isEmpty(int front, int rear)
+int isEmpty()
 {
- if(front==-1)
+    int fr =f();
+    int re = r();
+ if(fr==-1)
  return 1;
  return 0;
 }
-void insert(int items[],int front,int rear)
+void insert(int items[])
 {
+    int fr =f();
+    int re = r();
  int element;
- if(isFull(front,rear))
+ if(isFull(fr,re))
  printf("Queue is full\n");
  else
  {
  printf("Enter the element\n");
  scanf("%d",&element);
- if(front==-1)
- front=0;
- rear=(rear+1)%SIZE;
- items[rear]=element;
+ if(fr==-1)
+ fr=0;
+ re=(re+1)%SIZE;
+ items[re]=element;
  }
 }
-void del(int items[],int front,int rear)
+void del(int items[])
 {
+    int fr =f();
+    int re = r();
  int element;
- if(isEmpty(rear,front))
+ if(isEmpty(re,fr))
  printf("Queue is empty\n");
  else
  {
- element=items[front];
- if(front==rear) {front=-1; rear=-1;}
+ element=items[fr];
+ if(fr==re) {fr=-1; re=-1;}
  else
- front=(front+1)%SIZE;
+ fr=(fr+1)%SIZE;
  printf("Deleted element %d \n",element);
  }
 }
-void display(int items[],int rear,int front)
+void display(int items[])
 {
+    int fr =f();
+    int re = r();
  int i;
- if(isEmpty(front,rear))
- printf("Queue is empty\n");
- else
- {
+
  printf("Elements in the queue\n");
- for(i=front; i<=rear; i++)
+ for(i=fr; i<=re; i++)
  printf("%d ",items[i]);
  printf("%d \n",items[i]);
 
- }
+
 }
 int main()
 {
- int choice,front=0,rear=-1;;
+ int choice;
  int items[SIZE];
  for(;;)
  {
@@ -68,11 +82,11 @@ int main()
  scanf("%d",&choice);
  switch(choice)
  {
- case 1:insert(items,front,rear);
+ case 1:insert(items);
  break;
- case 2:del(items,front,rear);
+ case 2:del(items);
  break;
- case 3:display(items,front,rear);
+ case 3:display(items);
  break;
  case 4:exit(0);
  }
