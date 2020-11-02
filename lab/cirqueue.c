@@ -1,35 +1,26 @@
 #include<stdio.h>
 #include<stdlib.h>
 #define SIZE 5
-int f(){
-int front =-1;
-return front;
-}
-int r(){
-int rear =-1;
-return rear;
-}
+int fr =-1;
+int re =-1;
+
+
 
 int isFull()
 {
-    int fr =f();
-    int re = r();
  if((fr==re+1)||(fr==0 && re==SIZE-1))
  return 1;
  return 0;
 }
 int isEmpty()
 {
-    int fr =f();
-    int re = r();
  if(fr==-1)
  return 1;
  return 0;
 }
 void insert(int items[])
 {
-    int fr =f();
-    int re = r();
+
  int element;
  if(isFull(fr,re))
  printf("Queue is full\n");
@@ -45,8 +36,7 @@ void insert(int items[])
 }
 void del(int items[])
 {
-    int fr =f();
-    int re = r();
+
  int element;
  if(isEmpty(re,fr))
  printf("Queue is empty\n");
@@ -61,12 +51,11 @@ void del(int items[])
 }
 void display(int items[])
 {
-    int fr =f();
-    int re = r();
+
  int i;
 
  printf("Elements in the queue\n");
- for(i=fr; i<=re; i++)
+ for(i=fr; i<=re-1; i++)
  printf("%d ",items[i]);
  printf("%d \n",items[i]);
 
