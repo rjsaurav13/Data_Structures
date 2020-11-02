@@ -1,15 +1,8 @@
 #include <stdio.h>
 #include<stdlib.h>
-#define MAX 50
-void insert();
-void delete();
-void display();
-int queue_array[MAX];
-int rear = - 1;
-int front = - 1;
 int main()
 {
-int choice;
+int rear=-1, front = - 1,MAX=50,queue_array[MAX],choice,item,i;
 while (1)
 {
 printf("\n1.insert 2.delete 3.display 4.exit\n");
@@ -18,24 +11,7 @@ scanf("%d", &choice);
 switch(choice)
 {
 case 1:
-insert();
-break;
-case 2:
-delete();
-break;
-case 3:
-display();
-break;
-case 4:
-exit(1);
-default:
-printf("Wrong choice \n");
-}
-}
-}
-void insert()
-{
-int item;
+//int item;
 if(rear == MAX - 1)
 printf("Queue Overflow \n");
 else
@@ -46,10 +22,8 @@ printf("Insert the element in queue : ");
 scanf("%d", &item);
 rear = rear + 1;
 queue_array[rear] = item;
-}
-}
-void delete()
-{
+break;
+case 2:
 if(front == - 1 || front > rear)
 {
 printf("Queue Underflow \n");
@@ -60,10 +34,9 @@ else
 printf("Element deleted from queue is : %d", queue_array[front]);
 front = front + 1;
 }
-}
-void display()
-{
-int i;
+break;
+case 3:
+//int i;
 if(front == - 1)
 printf("Queue is empty \n");
 else
@@ -73,4 +46,13 @@ for(i = front; i <= rear; i++)
 printf("%d ", queue_array[i]);
 printf("\n");
 }
+break;
+case 4:
+exit(1);
+default:
+printf("Wrong choice \n");
+}
+}
+}
+return 0;
 }
