@@ -2,7 +2,7 @@
 #include<stdlib.h>
 int main()
 {
-int rear=-1, front = - 1,MAX=50,queue_array[MAX],choice,item,i;
+int rear=-1, front = - 1,MAX=5,queue_array[MAX],choice,item,i;
 while (1)
 {
 printf("\n1.insert 2.delete 3.display 4.exit\n");
