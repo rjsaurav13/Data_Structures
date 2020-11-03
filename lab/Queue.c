@@ -11,7 +11,6 @@ scanf("%d", &choice);
 switch(choice)
 {
 case 1:
-//int item;
 if(rear == MAX - 1)
 printf("Queue Overflow \n");
 else
@@ -36,7 +35,6 @@ front = front + 1;
 }
 break;
 case 3:
-//int i;
 if(front == - 1)
 printf("Queue is empty \n");
 else
