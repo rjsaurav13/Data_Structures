@@ -1,98 +1,72 @@
 #include<stdio.h>
 #include<stdlib.h>
-#define maxsize 5
-void insert(int *,int *);
-void delete(int *,int *);
-void display(int *,int *);
-
-int main ()
+#define N 5
+int c=0;
+void enqueue(int *ele,int *r,int q[N]);
+int dequeue(int *f,int q[N]);
+void display(int *f,int q[N]);
+void main()
 {
-int a=-1,b=-1,i;
-int * front = &a, * rear = &b;
-int queue[maxsize];
-    int choice;
-    while(choice != 4)
-    {
-        printf("\n1)-Insert an element\n2)-Delete an element\n3)-Display\n4)-Exit\n");
-        printf("\nEnter your choice: ");
-        scanf("%d",&choice);
-        switch(choice)
-        {
-            case 1:
-            insert(queue,&front,&rear);
-            break;
-            case 2:
-            delete(queue,&front,&rear);
-            break;
-            case 3:
-            for(i =*front;i<=*rear; i++){
-            printf("%d ",queue[i]);
-            }
-            break;
-            case 4:
-            exit(0);
-            break;
-            default:
-            printf("\nEnter valid choice??\n");
-        }
-    }
-return 0;
+int f=0,r=-1,q[N];
+int ch,item,del;
+for(;;)
+{
+ printf("\n1.enqueue 2.dequeue 3.display 4.exit\n");
+ printf("enter your choice:");
+ scanf("%d",&ch);
+ switch(ch)
+ {
+ case 1:printf("enter item to be inserted:");
+ scanf("%d",&item);
+ enqueue(&item,&r,q);
+ break;
+ case 2:del=dequeue(&f,q);
+ if(del!=-1)
+ printf("deleted item=%d",del);
+ break;
+ case 3:display(&f,q);
+ break;
+ case 4:exit(0);
+ }
 }
-void insert(int queue[],int *f,int *r)
-{
-    int item;
-    printf("\nEnter the element\n");
-    scanf("%d",&item);
-    if((*r+1)%maxsize == *f)
-    {
-        printf("\nOVERFLOW");
-        return;
-    }
-    else if(*f == -1 && *r == -1)
-    {
-        *f = 0;
-        *r = 0;
-    }
-    else if(*r == maxsize -1 && *f != 0)
-    {
-        *r = 0;
-    }
-    else
-    {
-        *r = (*r+1)%maxsize;
-    }
-    queue[*r] = item;
-    printf("\nValue inserted ");
 }
-void delete(int queue[],int *f,int *r)
+void enqueue(int *item,int *r,int q[N])
 {
-    int item;
-    if(*f == -1 && *r == -1)
-    {
-        printf("\nUNDERFLOW\n");
-        return;
-    }
-    else if(*f == *r)
-    {
-        *f = -1;
-        *r = -1;
-    }
-    else if(*f == maxsize -1)
-        {
-            *f = 0;
-        }
-    else
-        *f = *f + 1;
+if(c==N)
+{
+ printf("overflow\n");
+ return;
 }
-
-void display(int queue[],int *f,int *r)
+*r=(*r+1)%N;
+q[*r]=*item;
+c++;
+}
+int dequeue(int *f,int q[N])
 {
-int i;
-printf("\n");
-if(*f == -1 || *f > *r )
-printf("\n QUEUE IS EMPTY");
-else {
-for(i = *f;i <= *r ; i++)
-printf("%d", queue[i]);
+int x;
+if(c==0)
+{
+ printf("underflow\n");
+ return -1;
+}
+x=q[*f];
+*f=(*f+1)%N;
+c--;
+return x;
+}
+void display(int *f,int q[N])
+{
+int i,y;
+if(c==0)
+{
+ printf("underflow\n");
+ return;
+}
+printf("queue elements are:\n");
+y=*f;
+for(i=0;i<c;i++)
+{
+ printf("%d\t",q[y]);
+ y=(y+1)%N;
 }
 }
