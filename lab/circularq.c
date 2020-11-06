@@ -4,7 +4,7 @@
 #define max 5
 void insert(int temp,int *fr,int *re,int qu[]);
 
-void del();
+void del(int *fr,int *re,int qu[]);
 void display();
 
 int main(){
