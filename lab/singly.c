@@ -13,11 +13,12 @@ struct node *insfront(struct node *);
 struct node *inspos(struct node *);
 struct node *delkey(struct node *);
 struct node *display(struct node *);
+struct node *revdisplay(struct node *);
 int main(){
 int ch;
 for(;;){
     printf("Enter your choice :\n");
-    printf("1)-Front Insert, 2)-Position Insertion,3)-Delete By Key,4)-Display:\n");
+    printf("1)-Front Insert, 2)-Position Insertion,3)-Delete By Key,4)-Display,5)-Reverse Display:\n");
     scanf("%d",ch);
     switch(ch){
         case 1:
@@ -33,6 +34,9 @@ for(;;){
             start=display(start);
             break;
         case 5:
+            start=revdisplay(start);
+            break;
+        case 6:
             exit(0);
 
     }
@@ -62,4 +66,15 @@ while(ptr != NULL)
  ptr = ptr -> next;
 }
 return start;
+}
+
+struct node *revdisplay(struct node *start) {
+   if(start == NULL) {
+      printf("[null] => ");
+      return start;
+   }
+
+   revdisplay(start->next);
+   printf(" %d =>",start->data);
+
 }
