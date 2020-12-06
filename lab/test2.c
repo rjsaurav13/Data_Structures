@@ -1,4 +1,5 @@
-#include<stdio.h>
+#include<iostream>
+
 int main(){
 	int tcase,num;
 	scanf("%d",&tcase);
@@ -17,7 +18,7 @@ int main(){
 		}else{
 			printf("NO");
 		}
-		printf("\n%d",i);
+
 	}
 	return 0;
 }
