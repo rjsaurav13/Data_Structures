@@ -89,14 +89,13 @@ int precedence(char symbol)
 }
 
 void InfixToPostfix(char infix_exp[], char postfix_exp[])
-{ 
+{
 	int i, j;
 	char item;
 	char x;
 
 	push('(');                               /* push '(' onto stack */
 	strcat(infix_exp,")");                  /* add ')' to infix expression */
-
 	i=0;
 	j=0;
 	item=infix_exp[i];         /* initialize before loop*/
