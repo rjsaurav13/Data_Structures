@@ -25,7 +25,7 @@ for(int i=0;i<tcase/2;i++){
             num=(num*10)+temp;
         }
     }
-    cout<<num;
+   
     if(num%11==0){
         cout<<"OUI";
     }
