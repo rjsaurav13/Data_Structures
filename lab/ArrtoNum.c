@@ -1,14 +1,22 @@
 #include<stdio.h>
 #include <math.h>
 int main(){
-int arr[100],len,num=0;
-scanf("%d",&len);
-for(int i = 0;i<len;i++){
-	scanf("%d",&arr[i]);
-}
-for(int j = len-1; j>=0; j--){
-	num=num+arr[j]*pow(10,j);
-}
-printf("%d",num);
+int m,n,t,r;
+scanf("%d%d",&m,&n);
+t=m;
+  while(t!=0)
+    {
+        if(m%t==0)
+        {
+            if(n%t==0)
+            {
+                r=t;
+                printf("gcd is %d",r);
+                exit(0);
+
+            }
+        }
+    }
+t=t-1;
 return 0;
 }
